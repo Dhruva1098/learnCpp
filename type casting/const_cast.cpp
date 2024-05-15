@@ -15,7 +15,8 @@ int main() {
 	print(const_cast<char*>(str)); //this will however work as const_cast casts 
 
 	const A a(1);
-	a.get();
+	a.get();  //no error because get is a const function
+
 	
 	// a.set(6)      throws an error because set cannot convert a this pointer of const A to A
 	const_cast<A&>(a).set(6); //works
