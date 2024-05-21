@@ -1,37 +1,31 @@
 #include<vector>
 #include <iostream>
 #include <string>
-#include <cmath>
-
 using namespace std;
+std::vector<int> nums1 = {};
 class Solution {
 public:
-    vector<string> binaries = {};
+    vector<vector<int>> sol = {};
     vector<vector<int>> subsets(vector<int>& nums) {
-        BinaryCombinations(nums.size(), "");
-        vector<vector<int>> sol = {};
-        
-        for(auto i:binaries){
-          vector<int> subset = {};
-          for(int k = 0; k < i.size(); k++){
-            if(i[k]=='1'){
-              subset.push_back(nums[k]);
+      nums1 = nums;
+      return BinaryCombinations(nums.size(), "");
+    }
+    vector<vector<int>> BinaryCombinations(int size, string prefix) {
+	    
+      if (size == 0) {
+		    vector<int> subset = {};
+          for(int k = 0; k < prefix.size(); k++){
+            if(prefix[k]=='1'){
+              subset.push_back(nums1[k]);
             }
           }
           sol.push_back(subset);
-        }
-        return sol;
-    }
-    vector<string> BinaryCombinations(int size, string prefix) {
-      
-	    if (size == 0) {
-		    binaries.push_back(prefix);
 	    }
 	    else {
         BinaryCombinations(size - 1, prefix + "0");
         BinaryCombinations(size - 1, prefix + "1");
 	    }
-      return binaries;
+      return sol;
     }
 };
 int main(){
