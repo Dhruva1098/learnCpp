@@ -5,39 +5,41 @@
 struct ListNode {
   int val;
   ListNode *next;
-  ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
+  ListNode() : val(0), next(NULL) {}
+  ListNode(int x) : val(x), next(NULL) {}
   ListNode(int x, ListNode *next) : val(x), next(next) {}
  };
  
 class Solution {
 public:
-  ListNode* string_to_LL(std::string sol){
-    ListNode sol_ll((int)sol[0]-48);
-    for(int i = 1; i<sol.length(); i++){
-      ListNode sol_ll((int)sol[i]-48, &sol_ll);
-    }
-    return &sol_ll;
-  }
+  ListNode sol_LL;
   ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+    ListNode* head = &sol_LL;
     int int_LL1 = 0, int_LL2=0;
     for(int i = 0; l1 ; i++){
       int_LL1+=(int)(l1->val*pow(10.0,(double)i));
       l1 = l1->next;
     }
     for(int i = 0; l2 ; i++){
-      int_LL1+=(int)(l1->val*pow(10.0,(double)i));
+      int_LL2+=(int)(l2->val*pow(10.0,(double)i));
+      l2 = l2->next;
     }
     int int_sol = int_LL1 + int_LL2;
-    std::string sol = std::to_string(int_sol);
-    return string_to_LL(sol);
+    std::string str_sol = std::to_string(int_sol);
+    sol_LL.val=(int)str_sol[str_sol.length()-1]-48;
+    for(int i = str_sol.length()-2; i>=0; i--){
+      ListNode temp((int)str_sol[i]-48);
+      head->next = &temp;
+      head = head -> next;
+    }
+    return &sol_LL;
   }
 };
 
 
 int main(){
   ListNode one(7);
-  ListNode two(2);
+  ListNode two(8);
   Solution s;
   ListNode* solution = s.addTwoNumbers(&one,&two);
 }
