@@ -26,14 +26,14 @@ int fibonacci_matrix_mul(std::vector<int> N, int m) {
     int i = 0;
     while (i <= K) {
         if (N[i] == 1) matrix_mul_mod(Y,X,m);
-        matrix_mul_mod(X, X, m);
+        matrix_mul(X, X);
         i++;
     }
     return Y[1][0];
  }
 
 int main() {
-    std::vector<int> N = {1,0,0,1};
+    std::vector<int> N = {1,1,0,0,1};
     int fib = fibonacci_matrix_mul(N, 10000000);
     std::cout<<fib;
 }
