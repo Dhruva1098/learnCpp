@@ -22,7 +22,7 @@ long long fibonacciModM(const vector<int>& digits, long long m) {
     vector<vector<long long>> F = {{1, 1}, {1, 0}};
     for (int digit : digits) {
         vector<vector<long long>> temp = result;
-        for (int i = 0; i < digit-2; ++i) {
+        for (int i = 0; i < digit; ++i) {
             multiplyMatrices(temp, F, m);
         }
         multiplyMatrices(result, temp, m);
