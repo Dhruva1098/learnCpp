@@ -43,7 +43,6 @@ public:
 };
 
 static node* kArray[ksize];
-std::fill(kArray, kArray + ksize, nullptr);
 
 class Hashmap {
   node **map = kArray;
