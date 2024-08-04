@@ -67,4 +67,11 @@ public:
   }
 };
 
-
+int main() {
+  Hashmap map;
+  map.map_insert(42);
+  map.map_insert(188);
+  map.map_insert(11);
+  map.map_delete(108);
+  std::cout << map.map_find(42) << " " << map.map_find(108) << " " << map.map_find(11) << std::endl;
+}
