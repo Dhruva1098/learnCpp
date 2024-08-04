@@ -2,11 +2,15 @@
 #include <algorithm>
 const int ksize = 10000;
 const int kprime = 100006;
-class node {
+
+struct node {
   int data;
   node* next;
-public:
   node(int data) : data(data) , next(nullptr) {}
+};
+
+class LL {
+public:
 
   void insert(int data, node*& head) {
     node* temp = new node(data);
@@ -46,9 +50,21 @@ static node* kArray[ksize];
 
 class Hashmap {
   node **map = kArray;
+  LL L;
 public:
-  void insert(int in) {
+  void map_insert(int in) {
     int pos = (in % kprime) % ksize;
-    insert(in, *map[pos]);       
+    L.insert(in, map[pos]);       
+  }
+
+  bool map_find(int in) {
+    int pos = (in % kprime) % ksize;
+    return L.find_val(in, map[pos]);
+  }
+  void map_delete(int in) {
+    int pos = (in % kprime) % ksize;
+    L.delete_val(in, map[pos]);
   }
 };
+
+
