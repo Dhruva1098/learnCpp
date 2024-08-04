@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 const int ksize = 10000;
 const int kprime = 100006;
 
@@ -20,7 +19,7 @@ public:
 
   bool find_val(int data, node*& head) {
     node* current = head;
-    while (current->next != nullptr) {
+    while (current != nullptr) {
       if (current->data == data) {
         return true;
       }
@@ -29,6 +28,7 @@ public:
   }
 
   void delete_val(int data, node*& head) {
+    if(head == nullptr) return;
     if(head->data == data) {
       node* temp = head;
       head = head->next;
@@ -69,6 +69,9 @@ public:
 
 int main() {
   Hashmap map;
+  for (int i = 0; i < ksize; i++) {
+     kArray[i] = nullptr;
+     }
   map.map_insert(42);
   map.map_insert(188);
   map.map_insert(11);
