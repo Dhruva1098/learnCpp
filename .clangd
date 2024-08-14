@@ -1,5 +1,0 @@
-CompileFlags:
-  Add:
-    - "--include=/path/to/file.h"
-    - "--include-directory=/path/to/directory-1"
-    - "--include-directory=/path/to/directory-2"

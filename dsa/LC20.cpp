@@ -8,11 +8,12 @@ bool isValid(string s) {
     stack.push((int)s[0]);
     for(int i = 1; i < s.length(); i++) {
         if(stack.empty()) {stack.push(s[i]);}
+        else{
         char out = s[i];
         char top = stack.top();
         if((top == out - 1) || (top == out - 2)) {stack.pop();}
         else stack.push(s[i]);
-    }
+    }}
     if(stack.empty()) return true;
     return false;
 }
