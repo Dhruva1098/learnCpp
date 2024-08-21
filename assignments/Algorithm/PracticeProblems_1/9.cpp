@@ -20,6 +20,6 @@ int largest_dense_substring(vector<int>& S){
     return max;
 }
 int main(){
-    vector<int> in = {1,1,0,1,1,1,1,1,0};
+    vector<int> in = {0,1,1,0,0,1,0,0,0,0};
     std::cout << largest_dense_substring(in);
 }
