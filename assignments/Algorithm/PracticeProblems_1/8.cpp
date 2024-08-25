@@ -1,16 +1,17 @@
 /*
-* 8. A binary string is called dense if the numner of 1s in the string is more than the number of 0s. For example 1,101,110101, are dense but 1001,1000001 are not dense. 
-* Given a binary string of length n, design an O(n log n) algorithm to compute the no. of dense sub-strings of the given string. 
+* 8. A binary string is called dense if the numner of 1s in the string is more than the number of 0s. For example 1,101,110101, are dense but 1001,1000001 are not dense.
+* Given a binary string of length n, design an O(n log n) algorithm to compute the no. of dense sub-strings of the given string.
 * or example, no. of dense substrings for 10101 is 6.
 */
 
 #include <iostream>
 #include <vector>
 int merge(int A[], int l, int r) {
+  std::vector<int> B;
   int i = l; int j = (l+r)/2; int p = 0; int c = 0;
   while((i <= (l+r)/2) && (j < r)) {
     if(A[i] > A[j]) B[p++] = A[i++];
-    else{ B[p++] = A[j++]}
+    else{ B[p++] = A[j++];}
     c+= (l+r)/2 -i + 1;
   } return c;
 }
