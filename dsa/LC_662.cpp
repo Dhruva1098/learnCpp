@@ -1,7 +1,6 @@
 #include <utility>
 #include <queue>
 typedef unsigned long long ull;
-
 struct TreeNode {
   int val;
   TreeNode* left;
