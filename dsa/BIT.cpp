@@ -1,4 +1,11 @@
-
+int getSum(int BITree[], int index){
+  int sum = 0;
+  index++;
+  while(index>0){
+    sum += BITree[index];
+    index -= index&(-index);
+  } return sum;
+}
 void updateBIT(int BITree[], int n, int index, int val){
   index += 1;
   while(index <= n){
