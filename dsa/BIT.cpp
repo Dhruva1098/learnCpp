@@ -24,3 +24,9 @@ int *constructBITree(int arr[], int n){
   }
   return BITree;
 }
+
+int main(){
+  int arr[] = {1,2,3,4,5,6};
+  int *BITree = constructBITree(arr, 6);
+
+}
