@@ -1,5 +1,4 @@
 #include<vector>
-#include <iostream>
 #include <string>
 using namespace std;
 std::vector<int> nums1 = {};
