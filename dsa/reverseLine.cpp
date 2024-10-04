@@ -4,7 +4,6 @@
 
 void reverseFile(std::ifstream& input) {
 	std::string line;
-	//if is true until there is a line, at last line if is false and function calls start finishing 
 	if(getline(input,line)){
 		//base case
 		reverseFile(input);
