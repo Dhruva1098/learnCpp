@@ -13,12 +13,23 @@ int main(){
     for(int i = 0; i < n; ++i) {
         cin >> m[i].first >> m[i].second;
     }
-    vector<int> wd(d + 1, 1);
+    vector<pair<int, int>> intervals;
     for(int i = 0; i < n; ++i) {
-        for(int j = m[i].first; j <= m[i].second; ++j) {
-            wd[j] = 0;
-        }
+        intervals.push_back({m[i].first, 1});
+        intervals.push_back({m[i].second + 1, -1});
     }
-    int out = accumulate(wd.begin() + 1, wd.end(), 0);
+    sort(intervals.begin(), intervals.end());
+    int out = 0, current = 0, last = 1;
+    for(auto &interval : intervals) {
+        if(current == 0) {
+            out += interval.first - last;
+        }
+        current += interval.second;
+        last = interval.first;
+    }
+    if(current == 0) {
+        out += d + 1 - last;
+    }
     cout << out << endl;
+    return 0;
 }
