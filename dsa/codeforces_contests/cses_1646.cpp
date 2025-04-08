@@ -1,21 +1,22 @@
 #include <iostream>
-#include <vector>
 using namespace std;
+
+const int N = 2e5 + 9;
+long long pref_sum[N];
+int a[N];
 
 int main(){
   int n,q;
   cin >> n >> q;
-  vector<int> arr(n);
-  vector<int> temp(n);
-  for(int i = 0; i < n; i++){
-    cin >> arr[i];
+  for(int i = 1; i <= n; i++){
+    cin >> a[i];
   }
-  for(int i = 1; i < n; i++){
-    temp[i-1] += temp[i];
+  for(int i = 1; i <= n; i++){
+    pref_sum[i] = pref_sum[i-1] + a[i];
   }
   while(q--){
-    size_t a,b;
+    int a,b;
     cin >> a >> b;
-    cout << temp[b] - temp[a-1] ; 
+    cout <<"\n" << pref_sum[b] - pref_sum[a-1]; 
   }
 }
